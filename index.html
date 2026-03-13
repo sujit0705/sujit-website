@@ -4,56 +4,88 @@
 <title>Sujit Gaming</title>
 
 <style>
+
 body{
-background:#0f172a;
+background:#020617;
 color:white;
 font-family:Arial;
 text-align:center;
+margin:0;
 }
 
 .header{
-background:#1e293b;
+background:#0f172a;
 padding:15px;
 font-size:22px;
+font-weight:bold;
 }
 
 .wallet{
+background:#1e293b;
 margin:15px;
-padding:10px;
-background:#334155;
-border-radius:10px;
+padding:15px;
+border-radius:12px;
+}
+
+.gamebox{
+background:#0f172a;
+margin:20px;
+padding:20px;
+border-radius:15px;
 }
 
 button{
-padding:12px 20px;
+padding:12px 25px;
 margin:10px;
 font-size:18px;
 border:none;
 border-radius:10px;
+cursor:pointer;
 }
 
-.red{background:red;color:white;}
-.green{background:green;color:white;}
+.red{
+background:#ef4444;
+color:white;
+}
+
+.green{
+background:#22c55e;
+color:white;
+}
+
+.bet{
+background:#2563eb;
+color:white;
+}
 
 #timer{
-font-size:28px;
+font-size:35px;
 margin:20px;
+font-weight:bold;
 }
-</style>
 
+#result{
+margin-top:20px;
+font-size:22px;
+}
+
+</style>
 </head>
 
 <body>
 
 <div class="header">
-Sujit Gaming
+🎮 Sujit Gaming
 </div>
 
 <div class="wallet">
-Wallet Balance: ₹100
+Wallet Balance : ₹100  
 <br><br>
-<button>Login</button>
+<button class="bet">Add Money</button>
+<button class="bet">Withdraw</button>
 </div>
+
+<div class="gamebox">
 
 <h2 id="timer">10</h2>
 
@@ -62,7 +94,9 @@ Wallet Balance: ₹100
 <button class="red" onclick="choose('red')">Red</button>
 <button class="green" onclick="choose('green')">Green</button>
 
-<h2 id="result"></h2>
+<h3 id="result"></h3>
+
+</div>
 
 <script>
 
@@ -83,13 +117,14 @@ if(time==0){
 let result=Math.random()<0.5?"red":"green";
 
 if(choice==result){
-document.getElementById("result").innerHTML="You Win 🎉";
+document.getElementById("result").innerHTML="🎉 You Win";
 }else{
-document.getElementById("result").innerHTML="You Lose 😢";
+document.getElementById("result").innerHTML="😢 You Lose";
 }
 
 time=10;
 choice="";
+
 }
 
 },1000);

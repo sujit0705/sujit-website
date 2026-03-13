@@ -1,44 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Sujit Gaming</title>
+<title>Sujit Color Prediction</title>
+
 <style>
 body{
-font-family:Arial;
-text-align:center;
-background:#000;
+background:#111;
 color:white;
+text-align:center;
+font-family:Arial;
 }
 
 button{
-padding:10px 20px;
-font-size:20px;
+padding:15px 25px;
+margin:10px;
+font-size:18px;
+border:none;
+border-radius:8px;
+}
+
+.red{background:red;color:white;}
+.green{background:green;color:white;}
+
+#timer{
+font-size:30px;
+margin:20px;
 }
 </style>
+
 </head>
 
 <body>
 
-<h1>Sujit Gaming Website</h1>
-<p>Click to start game</p>
+<h1>Sujit Color Prediction</h1>
 
-<button onclick="play()">Play Game</button>
+<h2 id="timer">10</h2>
+
+<p>Choose Color</p>
+
+<button class="red" onclick="choose('red')">Red</button>
+<button class="green" onclick="choose('green')">Green</button>
 
 <h2 id="result"></h2>
 
 <script>
-function play(){
 
-let r=Math.random();
+let time=10;
+let choice="";
 
-if(r<0.5){
-document.getElementById("result").innerHTML="Player 1 Wins";
-}
-else{
-document.getElementById("result").innerHTML="Player 2 Wins";
+function choose(color){
+choice=color;
 }
 
+setInterval(function(){
+
+time--;
+document.getElementById("timer").innerHTML=time;
+
+if(time==0){
+
+let result=Math.random()<0.5?"red":"green";
+
+if(choice==result){
+document.getElementById("result").innerHTML="You Win 🎉";
+}else{
+document.getElementById("result").innerHTML="You Lose 😢";
 }
+
+time=10;
+choice="";
+}
+
+},1000);
+
 </script>
 
 </body>
